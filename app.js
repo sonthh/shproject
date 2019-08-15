@@ -7,7 +7,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 
-var apiRoute = require('./routes/apiRoute');
+const apiRoute = require('./routes/apiRoute');
 const webRoute = require('./routes/webRoute');
 const usersRouter = require('./routes/users');
 const config = require('./configs');
