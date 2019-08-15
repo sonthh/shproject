@@ -20,13 +20,13 @@ const findOne = (req, res, next) => {
   if (article !== null) {
     return res.status(200).send({
       success: 'true',
-      message: `acticel with id: ${id} retrieved successfully`,
+      message: `article with id: ${id} retrieved successfully`,
       data: article
     });
   } else {
     return res.status(404).send({
       success: 'false',
-      message: 'acticle does not exist',
+      message: 'article does not exist',
     });
   }
 };
