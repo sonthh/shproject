@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   res.render('public/index', {
-    title: 'Express',
+    title: 'codershare.com',
     skills: [
       'Spring boot', 'Nodejs', 'Reactjs', 'Angular', 'Laravel'
     ],
