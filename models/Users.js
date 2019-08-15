@@ -6,6 +6,7 @@ const emailValidator = [
   (val) => validator.isEmail(val),
   'Email is incorrect format',
 ];
+
 const UserSchema = mongoose.Schema({
   username: {
     type: String,
