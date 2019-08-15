@@ -1,0 +1,49 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "title1",
+      "image": "./images/pflo1.jpg",
+      "images": [
+        "./images/pflo1.jpg",
+        "./images/pflo2.jpg",
+        "./images/pflo3.jpg"
+      ],
+      "description": "description 1",
+      "client": "client1",
+      "role": "coder",
+      "category": "Category1",
+      "link": "http://fb.com"
+    },
+    {
+      "id": 2,
+      "title": "title2",
+      "image": "./images/pflo1.jpg",
+      "images": [
+        "./images/pflo1.jpg",
+        "./images/pflo2.jpg",
+        "./images/pflo3.jpg"
+      ],
+      "description": "description 2",
+      "client": "client2",
+      "role": "coder",
+      "category": "Category2",
+      "link": "http://fb.com"
+    },
+    {
+      "id": 3,
+      "title": "title3",
+      "image": "./images/pflo1.jpg",
+      "images": [
+        "./images/pflo1.jpg",
+        "./images/pflo2.jpg",
+        "./images/pflo3.jpg"
+      ],
+      "description": "description 3",
+      "client": "client3",
+      "role": "coder",
+      "category": "Category3",
+      "link": "http://fb.com"
+    }
+  ]
+}
