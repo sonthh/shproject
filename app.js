@@ -7,7 +7,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 
-const indexRouter = require('./routes/index');
+var apiRoute = require('./routes/apiRoute');
+const webRoute = require('./routes/webRoute');
 const usersRouter = require('./routes/users');
 const config = require('./configs');
 
@@ -27,7 +28,8 @@ if (config.env === 'development') {
 }
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -35,8 +37,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRoute);
+app.use('/', webRoute);
+//fake data for api
+app.locals.data = require('./models/data.json');
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
