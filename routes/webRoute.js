@@ -6,9 +6,9 @@ router.get('/', (req, res) => {
   res.render('public/index', {
     title: 'codershare.com',
     skills: [
-      'Spring boot', 'Nodejs', 'Reactjs', 'Angular', 'Laravel'
+      'Spring boot', 'Nodejs', 'Reactjs', 'Angular', 'Laravel',
     ],
-    myName: 'Son H.H. Tran'
+    myName: 'Son H.H. Tran',
 
   });
 });

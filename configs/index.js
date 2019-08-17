@@ -1,3 +1,7 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 module.exports = {
   env: process.env.NODE_ENV || 'development',
   server: {
@@ -7,5 +11,5 @@ module.exports = {
     level: process.env.LOG_LEVEL || 'debug',
   },
   secret: 'hoanghuyit',
-  db: 'mongodb://localhost/codershare',
+  db: `mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`,
 };

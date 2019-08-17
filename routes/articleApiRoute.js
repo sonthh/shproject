@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var articleController = require('../controllers/articleController');
+const express = require('express');
+
+const router = express.Router();
+const articleController = require('../controllers/articleController');
 
 router.get('/', articleController.findAll);
 router.get('/:id', articleController.findOne);
