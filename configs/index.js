@@ -7,5 +7,5 @@ module.exports = {
     level: process.env.LOG_LEVEL || 'debug',
   },
   secret: 'hoanghuyit',
-  db: 'mongodb://localhost/codershare',
+  db: 'mongodb://localhost/music',
 };

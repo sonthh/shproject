@@ -28,7 +28,7 @@ if (config.env === 'development') {
 }
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.use('/api', apiRoute);
 app.use('/', webRoute);
-//fake data for api
+// fake data for api
 app.locals.data = require('./models/data.json');
 
 // catch 404 and forward to error handler
