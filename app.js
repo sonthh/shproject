@@ -13,6 +13,7 @@ const usersRouter = require('./routes/users');
 const config = require('./configs');
 
 const app = express();
+
 const { port } = config.server;
 
 mongoose.connect(config.db, { useNewUrlParser: true });

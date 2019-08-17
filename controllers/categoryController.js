@@ -1,30 +1,27 @@
 const Category = require('../models/Category');
 
-const findAll = (req, res, next) => {
-  Category.find().exec(function (err, categories) {
-    return res.status(200).send({
-      success: 'true',
-      message: 'category retrieved successfully',
-      data: categories
-    });
-  });
+const findAll = (req, res) => {
+  Category.find().exec((err, categories) => res.status(200).send({
+    success: 'true',
+    message: 'category retrieved successfully',
+    data: categories,
+  }));
 };
 
-const findOneById = (req, res, next) => {
-  let categoryId = req.params.id;
-  Category.findById(categoryId).exec(function (err, category) {
+const findOneById = (req, res) => {
+  const categoryId = req.params.id;
+  Category.findById(categoryId).exec((err, category) => {
     if (category) {
       return res.status(200).send({
         success: 'true',
         message: 'category retrieved successfully',
-        data: category
-      });
-    } else {
-      return res.status(200).send({
-        success: 'false',
-        message: 'category does not exist'
+        data: category,
       });
     }
+    return res.status(200).send({
+      success: 'false',
+      message: 'category does not exist',
+    });
   });
 };
 
@@ -37,20 +34,19 @@ const insertOne = (req, res) => {
 };
 
 const deleteOneById = (req, res) => {
-  let categoryId = req.params.id;
+  const categoryId = req.params.id;
   Category.findByIdAndDelete(categoryId).exec((err, category) => {
-      if (category) {
-        return res.status(200).send({
-          success: 'true',
-          message: 'delele ok',
-          id: category.id
-        });
-      } else {
-        return res.status(200).send({
-          success: 'false',
-          message: 'category does not exist'
-        });
-      }
+    if (category) {
+      return res.status(200).send({
+        success: 'true',
+        message: 'delele ok',
+        id: category.id,
+      });
+    }
+    return res.status(200).send({
+      success: 'false',
+      message: 'category does not exist',
+    });
   });
   const newCategory = new Category(req.body);
   return newCategory.save()
@@ -62,5 +58,5 @@ module.exports = {
   findAll,
   findOneById,
   insertOne,
-  deleteOneById
-}
+  deleteOneById,
+};
