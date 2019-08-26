@@ -9,8 +9,9 @@ const chalk = require('chalk');
 
 const apiRoute = require('./routes/apiRoute');
 const webRoute = require('./routes/webRoute');
-const usersRouter = require('./routes/users');
 const config = require('./configs');
+const middleware = require('./middlewares/authentication');
+
 
 const app = express();
 
@@ -37,10 +38,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(middleware.jwtFunc());
 
-app.use('/users', usersRouter);
 app.use('/api', apiRoute);
 app.use('/', webRoute);
+
+
+app.use((err, request, response, next) => {
+  if (err.name === 'UnauthorizedError') {
+    return response.status(403).send({
+      success: false,
+      message: 'No token provided.',
+    });
+  }
+  return next();
+});
 // fake data for api
 app.locals.data = require('./models/data.json');
 
@@ -53,7 +65,6 @@ app.use((req, res, next) => {
 app.use((err, req, res) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   res.status(err.status || 500);
   res.render('error');
 });
