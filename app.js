@@ -12,7 +12,6 @@ const webRoute = require('./routes/webRoute');
 const config = require('./configs');
 const middleware = require('./middlewares/authentication');
 
-
 const app = express();
 
 const { port } = config.server;
